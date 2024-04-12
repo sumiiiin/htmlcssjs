@@ -15,7 +15,7 @@
   </listener>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring/root/*.xml</param-value>
+    <param-value>classpath:spring/root/*.xml</param-value> <!-- classpath는 web-inf안에 classes폴더를 뜻한다. src/main/java,resources -->
   </context-param>
   
   <servlet>
@@ -29,19 +29,19 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>DispatcherServlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/</url-pattern><!-- http://localhost:8080/htmlcssjs/ 가 생략 -->
   </servlet-mapping>  
   
   <filter>
-    <filter-name>CharacterEncodingFilter</filter-name>
+    <filter-name>CharacterEncodingFilter</filter-name> <!-- 바이트로 온 한글을 서버가 필터를 통해 한글로 바꿈 -->
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
     <init-param>
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
     </init-param>
   </filter>
-  <filter-mapping>
+  <filter-mapping> <!-- 위에서 만든 필터 사용 filter-name은 사용자지정 둘이 같기만 하면 된다. -->
     <filter-name>CharacterEncodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/*</url-pattern><!-- 앞에 기본 주소만 맞으면 모든 url에 필터를 거치겠다. -->
   </filter-mapping>
 </web-app>

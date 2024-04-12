@@ -6,5 +6,6 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<!-- 기본경로 뒤가 resources라면 controller로 가지않고 resources경로로 간다. -->
 
 </beans>
